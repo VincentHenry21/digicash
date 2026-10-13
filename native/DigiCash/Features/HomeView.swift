@@ -181,7 +181,7 @@ struct HomeView: View {
         case .week:
             let weekday = cal.component(.weekday, from: now)
             let offset = prefs.weekStartsMonday ? (weekday + 5) % 7 : weekday - 1
-            let start = cal.startOfDay(cal.date(byAdding: .day, value: -offset, to: now)!)
+            let start = cal.startOfDay(for: cal.date(byAdding: .day, value: -offset, to: now)!)
             let end = cal.date(byAdding: .day, value: 7, to: start)!.addingTimeInterval(-1)
             return (start, end)
         case .month:
@@ -264,9 +264,9 @@ struct HomeView: View {
 
     private var quickActions: some View {
         HStack(spacing: 10) {
-            quickButton("Expense", "minus", .expense) { addType = .expense; showAdd = true }
-            quickButton("Income", "plus", .income) { addType = .income; showAdd = true }
-            quickButton("Transfer", "arrow.left.arrow.right", .transfer) { addType = .transfer; showAdd = true }
+            quickButton("Expense", "minus", DCColor.expense) { addType = .expense; showAdd = true }
+            quickButton("Income", "plus", DCColor.income) { addType = .income; showAdd = true }
+            quickButton("Transfer", "arrow.left.arrow.right", DCColor.transfer) { addType = .transfer; showAdd = true }
             quickButton("Activity", "list.bullet", .primary) { tab = .transactions }
         }
     }

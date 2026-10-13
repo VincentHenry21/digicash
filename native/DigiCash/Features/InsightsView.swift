@@ -43,7 +43,7 @@ struct InsightsView: View {
         case .week:
             let weekday = cal.component(.weekday, from: now)
             let offset = prefs.weekStartsMonday ? (weekday + 5) % 7 : weekday - 1
-            let start = cal.startOfDay(cal.date(byAdding: .day, value: -offset, to: now)!)
+            let start = cal.startOfDay(for: cal.date(byAdding: .day, value: -offset, to: now)!)
             return (start, cal.date(byAdding: .day, value: 7, to: start)!.addingTimeInterval(-1))
         case .month:
             let start = cal.date(from: cal.dateComponents([.year, .month], from: now))!

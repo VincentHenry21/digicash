@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+/* Begin PBXBuildFile section */
+		2674B0AAE85373768D7EE9F4 = {isa = PBXBuildFile; fileRef = 46F011930595C9BB0CA63B95; };
+		3979EB4D6D916AEEE435513E = {isa = PBXBuildFile; fileRef = 8D82E0155B90684E80D1CD53; };
+		3BAC33ADFEA5CA0DEFAE9BD2 = {isa = PBXBuildFile; fileRef = A18E89BD0581CCF50D83D939; };
+		F9FF2BE8ACE64F4DF82D3A12 = {isa = PBXBuildFile; fileRef = D37D7876924FD5C4DACC28D2; };
+		45DD62419F014ED45FFD9902 = {isa = PBXBuildFile; fileRef = 54360D96FEA2EDC7F30626B4; };
+		A42D56D3F9C5A0C41D37FE42 = {isa = PBXBuildFile; fileRef = 4A6D0E1EC31379698C4CFC51; };
+		0BC41200D4D9E6689CBC5FB2 = {isa = PBXBuildFile; fileRef = 7A7B367DCF49D4DC1DBBDBA3; };
+		018077D2FC1FD4B7796C0785 = {isa = PBXBuildFile; fileRef = 41EB740BE3A5329872A221FF; };
+		75000E3B6CD9C9DAE8373692 = {isa = PBXBuildFile; fileRef = FB397613E206824E1EE995D6; };
+		F716CA5884BA9FDA0E17F99A = {isa = PBXBuildFile; fileRef = E115E770F953E8240303DD56; };
+		D3BED205089579CB690CC886 = {isa = PBXBuildFile; fileRef = E575A25E3AFC25CCD69EB33C; };
+		9810313530CC25381B71E5EA = {isa = PBXBuildFile; fileRef = 78A13D05F1F2E802F3E8E280; };
+		A243C907EE5393F9F6D7F14D = {isa = PBXBuildFile; fileRef = E1A8F5A648F3FF783B12EBBF; };
+		A92720DEBE69662ACDF8DF1C = {isa = PBXBuildFile; fileRef = ECE6BD7892CBC0457F91E5B1; };
+		67A05A4ABF70B4649F1F5235 = {isa = PBXBuildFile; fileRef = C5F82F9AAB09A0DA83FA835A; };
+		219B4081B308DED7D112C7D0 = {isa = PBXBuildFile; fileRef = 695F5CCCF6A1939D656BA699; };
+		FDB83EC09E27792EE3636368 = {isa = PBXBuildFile; fileRef = 763A1082E1C3D35D806FAC98; };
+		9EECF4C41102D6DED7A95A26 = {isa = PBXBuildFile; fileRef = 477D953213524E5536248B01; };
+		B89BA7AE0E386B96B4045C82 = {isa = PBXBuildFile; fileRef = 1089E08F1EC84621364EAA57; };
+		70372DEAACE9FB275C42A9CB = {isa = PBXBuildFile; fileRef = 7391E39FA983CF3DCEA7F687; };
+		78F09F5A887EA541DC83CEA9 = {isa = PBXBuildFile; fileRef = A2D0CA0B7975ED6EF42D9220; };
+		9F580A4F31659D84555AEBB5 = {isa = PBXBuildFile; fileRef = E022E0E5452CDA950053E2CC; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46F011930595C9BB0CA63B95 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DigiCashApp.swift"; sourceTree = "<group>"; };
+		8D82E0155B90684E80D1CD53 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
+		A18E89BD0581CCF50D83D939 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Components.swift"; sourceTree = "<group>"; };
+		D37D7876924FD5C4DACC28D2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Money.swift"; sourceTree = "<group>"; };
+		54360D96FEA2EDC7F30626B4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models.swift"; sourceTree = "<group>"; };
+		4A6D0E1EC31379698C4CFC51 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataStore.swift"; sourceTree = "<group>"; };
+		7A7B367DCF49D4DC1DBBDBA3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Finance.swift"; sourceTree = "<group>"; };
+		41EB740BE3A5329872A221FF = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications.swift"; sourceTree = "<group>"; };
+		FB397613E206824E1EE995D6 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootView.swift"; sourceTree = "<group>"; };
+		E115E770F953E8240303DD56 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingView.swift"; sourceTree = "<group>"; };
+		E575A25E3AFC25CCD69EB33C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView.swift"; sourceTree = "<group>"; };
+		78A13D05F1F2E802F3E8E280 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionsView.swift"; sourceTree = "<group>"; };
+		E1A8F5A648F3FF783B12EBBF = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionFormView.swift"; sourceTree = "<group>"; };
+		ECE6BD7892CBC0457F91E5B1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountsView.swift"; sourceTree = "<group>"; };
+		C5F82F9AAB09A0DA83FA835A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetsView.swift"; sourceTree = "<group>"; };
+		695F5CCCF6A1939D656BA699 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoalsView.swift"; sourceTree = "<group>"; };
+		763A1082E1C3D35D806FAC98 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsightsView.swift"; sourceTree = "<group>"; };
+		477D953213524E5536248B01 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecurringView.swift"; sourceTree = "<group>"; };
+		1089E08F1EC84621364EAA57 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
+		A2D0CA0B7975ED6EF42D9220 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTests.swift"; sourceTree = "<group>"; };
+		E022E0E5452CDA950053E2CC = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinanceTests.swift"; sourceTree = "<group>"; };
+		7391E39FA983CF3DCEA7F687 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84337AD8D27FCD69AF2C4FC2 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigiCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5A2BEBE86215B3F6D160426 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigiCashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6EFAB1ECC0D092E20FE51FCD = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		54AB89D79F92BD2966E41BD8 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		518DA81DB9B99529C0C0AEBE = {
+			isa = PBXGroup;
+			children = (
+				82CF2A43A7100F086D7FCFDD,
+				A0937472EE5878FA82CB0F7E,
+				547D009064F7C3F13BEF3460,
+			);
+			sourceTree = "<group>";
+		};
+		82CF2A43A7100F086D7FCFDD = {
+			isa = PBXGroup;
+			children = (
+				46F011930595C9BB0CA63B95,
+				C851C17A106D89F8CA02DC6E,
+				DA3EB179D6EE613492F299B1,
+				72DF74B0598EE8115CAB814E,
+				AAE953452CCD6DDD91445CEA,
+			);
+			name = DigiCash; path = "DigiCash"; sourceTree = "<group>";
+		};
+		C851C17A106D89F8CA02DC6E = {
+			isa = PBXGroup;
+			children = (
+				8D82E0155B90684E80D1CD53,
+				A18E89BD0581CCF50D83D939,
+			);
+			name = Design; sourceTree = "<group>";
+		};
+		DA3EB179D6EE613492F299B1 = {
+			isa = PBXGroup;
+			children = (
+				D37D7876924FD5C4DACC28D2,
+				54360D96FEA2EDC7F30626B4,
+				4A6D0E1EC31379698C4CFC51,
+				7A7B367DCF49D4DC1DBBDBA3,
+				41EB740BE3A5329872A221FF,
+			);
+			name = Core; sourceTree = "<group>";
+		};
+		72DF74B0598EE8115CAB814E = {
+			isa = PBXGroup;
+			children = (
+				FB397613E206824E1EE995D6,
+				E115E770F953E8240303DD56,
+				E575A25E3AFC25CCD69EB33C,
+				78A13D05F1F2E802F3E8E280,
+				E1A8F5A648F3FF783B12EBBF,
+				ECE6BD7892CBC0457F91E5B1,
+				C5F82F9AAB09A0DA83FA835A,
+				695F5CCCF6A1939D656BA699,
+				763A1082E1C3D35D806FAC98,
+				477D953213524E5536248B01,
+				1089E08F1EC84621364EAA57,
+			);
+			name = Features; sourceTree = "<group>";
+		};
+		AAE953452CCD6DDD91445CEA = {
+			isa = PBXGroup;
+			children = (
+				7391E39FA983CF3DCEA7F687,
+			);
+			name = Resources; path = "Resources"; sourceTree = "<group>";
+		};
+		A0937472EE5878FA82CB0F7E = {
+			isa = PBXGroup;
+			children = (
+				A2D0CA0B7975ED6EF42D9220,
+				E022E0E5452CDA950053E2CC,
+			);
+			name = DigiCashTests; path = "DigiCashTests"; sourceTree = "<group>";
+		};
+		547D009064F7C3F13BEF3460 = {
+			isa = PBXGroup;
+			children = (
+				84337AD8D27FCD69AF2C4FC2,
+				B5A2BEBE86215B3F6D160426,
+			);
+			name = Products; sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3435DDA2687639586BF0B70 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D97B77EAD2380603A3F2A82;
+			buildPhases = (
+				4821909E9BF9E73E471FEA84,
+				6EFAB1ECC0D092E20FE51FCD,
+				F667297ED3AB90EAC07798D4,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DigiCash;
+			productName = DigiCash;
+			productReference = 84337AD8D27FCD69AF2C4FC2;
+			productType = "com.apple.product-type.application";
+		};
+		5DED2D04DB49D4091162647E = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96375ECE1B94BBE7901BC88B;
+			buildPhases = (
+				BDA9E329ACCE0E746140CA84,
+				54AB89D79F92BD2966E41BD8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DFFD7C2E80052CE7F6C8A85,
+			);
+			name = DigiCashTests;
+			productName = DigiCashTests;
+			productReference = B5A2BEBE86215B3F6D160426;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F86FAA6BBF9AC94A7E4595 = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					E3435DDA2687639586BF0B70 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					5DED2D04DB49D4091162647E = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E3435DDA2687639586BF0B70;
+					};
+				};
+			};
+			buildConfigurationList = 4A4847AD3DEAD4E590A6A910;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en);
+			mainGroup = 518DA81DB9B99529C0C0AEBE;
+			productRefGroup = 547D009064F7C3F13BEF3460;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3435DDA2687639586BF0B70,
+				5DED2D04DB49D4091162647E,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F667297ED3AB90EAC07798D4 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70372DEAACE9FB275C42A9CB,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4821909E9BF9E73E471FEA84 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2674B0AAE85373768D7EE9F4,
+				3979EB4D6D916AEEE435513E,
+				3BAC33ADFEA5CA0DEFAE9BD2,
+				F9FF2BE8ACE64F4DF82D3A12,
+				45DD62419F014ED45FFD9902,
+				A42D56D3F9C5A0C41D37FE42,
+				0BC41200D4D9E6689CBC5FB2,
+				018077D2FC1FD4B7796C0785,
+				75000E3B6CD9C9DAE8373692,
+				F716CA5884BA9FDA0E17F99A,
+				D3BED205089579CB690CC886,
+				9810313530CC25381B71E5EA,
+				A243C907EE5393F9F6D7F14D,
+				A92720DEBE69662ACDF8DF1C,
+				67A05A4ABF70B4649F1F5235,
+				219B4081B308DED7D112C7D0,
+				FDB83EC09E27792EE3636368,
+				9EECF4C41102D6DED7A95A26,
+				B89BA7AE0E386B96B4045C82,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA9E329ACCE0E746140CA84 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78F09F5A887EA541DC83CEA9,
+				9F580A4F31659D84555AEBB5,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0DFFD7C2E80052CE7F6C8A85 = {isa = PBXTargetDependency; target = E3435DDA2687639586BF0B70; targetProxy = 323C3B257A357C9ED069C500; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		323C3B257A357C9ED069C500 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46F86FAA6BBF9AC94A7E4595;
+			proxyType = 1;
+			remoteGlobalIDString = E3435DDA2687639586BF0B70;
+			remoteInfo = DigiCash;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin XCBuildConfiguration section */
+		B998F576DC59DBF1D3F160EA = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		DC071A7F6EF3096759CC44FA = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		82000B87E0EC13AD7FD6DA43 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "DigiCash/Resources/Preview Content";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DigiCash;
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock DigiCash with Face ID or Touch ID.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digicash.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGNING_REQUIRED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		16ACE556BD5CA3C51FD3F043 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "DigiCash/Resources/Preview Content";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DigiCash;
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock DigiCash with Face ID or Touch ID.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digicash.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		84F9322E66EE35E48CCB22FE = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digicash.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiCash.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DigiCash";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGNING_REQUIRED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		95D0608A0642C6FDF4DD406E = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digicash.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiCash.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DigiCash";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D97B77EAD2380603A3F2A82 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82000B87E0EC13AD7FD6DA43,
+				16ACE556BD5CA3C51FD3F043,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96375ECE1B94BBE7901BC88B = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84F9322E66EE35E48CCB22FE,
+				95D0608A0642C6FDF4DD406E,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A4847AD3DEAD4E590A6A910 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B998F576DC59DBF1D3F160EA,
+				DC071A7F6EF3096759CC44FA,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595;
+}

@@ -29,7 +29,7 @@ jobs:
       - name: Build (iPhone simulator, unsigned)
         run: |
           xcodebuild build \
-            -project native/DigiCash/DigiCash.xcodeproj \
+            -project native/DigiCash.xcodeproj \
             -scheme DigiCash \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             -derivedDataPath /tmp/digicash-dd \
@@ -38,7 +38,7 @@ jobs:
       - name: Run unit tests
         run: |
           xcodebuild test \
-            -project native/DigiCash/DigiCash.xcodeproj \
+            -project native/DigiCash.xcodeproj \
             -scheme DigiCash \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             -derivedDataPath /tmp/digicash-dd \

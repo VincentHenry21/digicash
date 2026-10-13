@@ -48,7 +48,7 @@ jobs:
       - name: Archive
         run: |
           xcodebuild archive \
-            -project native/DigiCash/DigiCash.xcodeproj \
+            -project native/DigiCash.xcodeproj \
             -scheme DigiCash \
             -configuration Release \
             -destination 'generic/platform=iOS' \

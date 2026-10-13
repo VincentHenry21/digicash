@@ -53,7 +53,7 @@ struct TransactionFormView: View {
                         hint: currency.code == "MMK" ? "Whole kyat, no decimals." : nil) {
                     TextField("0", text: $amountText)
                         .keyboardType(.decimalPad)
-                        .font(.system(size: 28, weight: .700, design: .rounded))
+                        .font(.system(size: 28, weight: .bold, design: .rounded))
                         .monospacedDigit()
                 }
 

@@ -307,7 +307,7 @@ struct AboutView: View {
                     .resizable().scaledToFit()
                     .frame(width: 88, height: 88)
                     .shadow(color: DCColor.brand.opacity(0.4), radius: 20)
-                Text("DigiCash").font(.title).fontWeight(.800)
+                Text("DigiCash").font(.title).fontWeight(.heavy)
                 Text("Version 1.0 · Built for iOS")
                     .font(.subheadline).foregroundStyle(.secondary)
                 VStack(alignment: .leading, spacing: 10) {

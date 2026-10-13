@@ -195,7 +195,7 @@ struct TransactionDetailView: View {
                     }
                     Spacer()
                     Text(amountText)
-                        .font(.system(size: 24, weight: .800, design: .rounded))
+                        .font(.system(size: 24, weight: .heavy, design: .rounded))
                         .monospacedDigit()
                 }
                 VStack(spacing: 0) {

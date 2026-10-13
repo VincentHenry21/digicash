@@ -225,7 +225,7 @@ struct DCTransactionRow: View {
 struct DCEmptyState: View {
     var icon: String
     var title: String
-    var body: String
+    var message: String
     var actionTitle: String? = nil
     var action: (() -> Void)? = nil
 
@@ -236,7 +236,7 @@ struct DCEmptyState: View {
                 .foregroundStyle(.tertiary)
                 .padding(.bottom, 4)
             Text(title).font(.headline)
-            Text(body)
+            Text(message)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

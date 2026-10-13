@@ -26,7 +26,7 @@ struct RecurringView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(t.title.isEmpty ? t.type.rawValue.capitalized : t.title)
                                     .fontWeight(.semibold)
-                                Text("\(t.frequency.capitalized) · next \(t.nextDate.formatted(date: .abbreviated, time: .omitted)) · \(accs[t.accountId] ?? "")")
+                                Text("\(t.frequency.capitalized) · next \(t.nextDate.formatted(date: .abbreviated, time: .omitted)) · \(accs[t.accountId]?.name ?? "")")
                                     .font(.caption).foregroundStyle(.secondary)
                             }
                             Spacer()

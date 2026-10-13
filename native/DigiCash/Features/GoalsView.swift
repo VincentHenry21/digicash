@@ -43,18 +43,18 @@ struct GoalsView: View {
                 }
                 .listStyle(.plain)
             }
-            .navigationTitle("Goals")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button { showAdd = true } label: { Image(systemName: "plus") }
-                        .accessibilityLabel("Add goal")
-                }
-            }
-            .sheet(isPresented: $showAdd) { DCSheet { GoalFormView() } }
-            .dcSheet(value: $editing) { g in DCSheet { GoalFormView(editing: g) } }
-            .dcSheet(value: $detail) { g in DCSheet { GoalDetailView(goal: g) } }
         }
+        .navigationTitle("Goals")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button { showAdd = true } label: { Image(systemName: "plus") }
+                    .accessibilityLabel("Add goal")
+            }
+        }
+        .sheet(isPresented: $showAdd) { DCSheet { GoalFormView() } }
+        .dcSheet(value: $editing) { g in DCSheet { GoalFormView(editing: g) } }
+        .dcSheet(value: $detail) { g in DCSheet { GoalDetailView(goal: g) } }
     }
 }
 

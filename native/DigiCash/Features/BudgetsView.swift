@@ -25,17 +25,17 @@ struct BudgetsView: View {
                 }
                 .listStyle(.plain)
             }
-            .navigationTitle("Budgets")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button { showAdd = true } label: { Image(systemName: "plus") }
-                        .accessibilityLabel("Add budget")
-                }
-            }
-            .sheet(isPresented: $showAdd) { DCSheet { BudgetFormView() } }
-            .dcSheet(value: $editing) { b in DCSheet { BudgetFormView(editing: b) } }
         }
+        .navigationTitle("Budgets")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button { showAdd = true } label: { Image(systemName: "plus") }
+                    .accessibilityLabel("Add budget")
+            }
+        }
+        .sheet(isPresented: $showAdd) { DCSheet { BudgetFormView() } }
+        .dcSheet(value: $editing) { b in DCSheet { BudgetFormView(editing: b) } }
     }
 }
 

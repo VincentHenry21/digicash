@@ -45,10 +45,10 @@ enum DCSpacing {
 }
 
 struct DCFonts {
-    static func balance() -> Font { .system(size: 38, weight: .800, design: .rounded) }
-    static func title() -> Font { .system(size: 28, weight: .700, design: .default) }
+    static func balance() -> Font { .system(size: 38, weight: .heavy, design: .rounded) }
+    static func title() -> Font { .system(size: 28, weight: .bold, design: .default) }
     static func headline() -> Font { .headline }
-    static func money() -> Font { .system(size: 17, weight: .700, design: .rounded) }
+    static func money() -> Font { .system(size: 17, weight: .bold, design: .rounded) }
 }
 
 /// iOS-native glass. Uses real system materials (which render with the

@@ -21,10 +21,12 @@ jobs:
 
       - name: Select Xcode
         run: |
-          if [ -d /Applications/Xcode_16.2.app ]; then
-            sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+          LATEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          if [ -n "$LATEST" ]; then
+            echo "Selecting newest Xcode: $LATEST"
+            sudo xcode-select -s "$LATEST/Contents/Developer"
           else
-            echo "Xcode 16.2 not present, using runner default"
+            echo "No Xcode_*.app found, using runner default"
           fi
           xcodebuild -version
 

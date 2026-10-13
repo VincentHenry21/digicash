@@ -49,17 +49,17 @@ struct RecurringView: View {
                 }
                 .listStyle(.plain)
             }
-            .navigationTitle("Recurring")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button { showAdd = true } label: { Image(systemName: "plus") }
-                        .accessibilityLabel("Add recurring")
-                }
-            }
-            .sheet(isPresented: $showAdd) { DCSheet { RecurringFormView() } }
-            .dcSheet(value: $editing) { t in DCSheet { RecurringFormView(editing: t) } }
         }
+        .navigationTitle("Recurring")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button { showAdd = true } label: { Image(systemName: "plus") }
+                    .accessibilityLabel("Add recurring")
+            }
+        }
+        .sheet(isPresented: $showAdd) { DCSheet { RecurringFormView() } }
+        .dcSheet(value: $editing) { t in DCSheet { RecurringFormView(editing: t) } }
     }
 }
 

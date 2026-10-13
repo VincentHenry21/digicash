@@ -1,5 +1,5 @@
 /* DigiCash service worker: offline-first app shell. Only caches successful responses. */
-var V = 'digicash-v1';
+var V = 'digicash-v2';
 var SHELL = [
   './', './index.html', './manifest.json',
   './css/tokens.css', './css/base.css', './css/components.css', './css/screens.css',
@@ -7,7 +7,8 @@ var SHELL = [
   './js/ui.js', './js/onboarding.js', './js/home.js', './js/transactions.js',
   './js/accounts.js', './js/budgets.js', './js/goals.js', './js/insights.js',
   './js/recurring.js', './js/settings.js', './js/app.js',
-  './assets/icons/icon-192.png', './assets/icons/icon-512.png'
+  './assets/icons/icon-192.png', './assets/icons/icon-512.png',
+  './assets/logo-transparent.png'
 ];
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(V).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));

@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import UniformTypeIdentifiers
 
 /// Settings: currency, display, privacy (PIN + biometrics), exchange rates,

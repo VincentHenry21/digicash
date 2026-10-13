@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 /// Recurring transaction templates with pause/resume and next-date preview.
 struct RecurringView: View {
@@ -12,7 +13,7 @@ struct RecurringView: View {
             let templates = (try? store.context.fetch(FetchDescriptor<RecurringTemplate>())) ?? []
             if templates.isEmpty {
                 DCEmptyState(icon: "repeat", title: "No recurring transactions",
-                             body: "Salary, rent, and bills can post automatically on schedule.",
+                             message: "Salary, rent, and bills can post automatically on schedule.",
                              actionTitle: "Add recurring") { showAdd = true }
             } else {
                 List {

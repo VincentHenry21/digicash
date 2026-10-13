@@ -14,7 +14,7 @@ struct GoalsView: View {
             let events = store.allGoalEvents()
             if goals.isEmpty {
                 DCEmptyState(icon: "target", title: "No savings goals",
-                             body: "Create a goal and track every contribution toward it.",
+                             message: "Create a goal and track every contribution toward it.",
                              actionTitle: "Create a goal") { showAdd = true }
             } else {
                 List {

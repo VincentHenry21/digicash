@@ -13,7 +13,7 @@ struct BudgetsView: View {
             let txs = store.transactions()
             if budgets.isEmpty {
                 DCEmptyState(icon: "chart.pie", title: "No budgets yet",
-                             body: "Set a spending limit per category and DigiCash will track it automatically.",
+                             message: "Set a spending limit per category and DigiCash will track it automatically.",
                              actionTitle: "Create a budget") { showAdd = true }
             } else {
                 List {

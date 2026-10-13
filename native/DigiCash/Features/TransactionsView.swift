@@ -97,11 +97,11 @@ struct TransactionsView: View {
         return Group {
             if store.transactions().isEmpty {
                 DCEmptyState(icon: "tray", title: "No transactions yet",
-                             body: "Add your first transaction to start tracking.",
+                             message: "Add your first transaction to start tracking.",
                              actionTitle: "Add transaction") { showAdd = true }
             } else if items.isEmpty {
                 DCEmptyState(icon: "magnifyingglass", title: "No matching transactions",
-                             body: "Try clearing or changing your filters.")
+                             message: "Try clearing or changing your filters.")
             } else {
                 List {
                     ForEach(items, id: \.id) { tx in

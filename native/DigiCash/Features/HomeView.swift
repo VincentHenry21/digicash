@@ -295,7 +295,7 @@ struct HomeView: View {
             let recent = Array(txs.prefix(5))
             if recent.isEmpty {
                 DCEmptyState(icon: "tray", title: "No transactions yet",
-                             body: "Your recent activity will appear here.",
+                             message: "Your recent activity will appear here.",
                              actionTitle: "Add your first transaction") {
                     addType = .expense; showAdd = true
                 }

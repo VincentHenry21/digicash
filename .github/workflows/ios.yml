@@ -30,12 +30,32 @@ jobs:
           fi
           xcodebuild -version
 
+      - name: Select simulator
+        id: sim
+        run: |
+          UDID=$(xcrun simctl list devices --json | python3 -c "
+          import json,sys
+          d = json.load(sys.stdin)
+          best = None
+          for runtime, devs in sorted(d['devices'].items()):
+              if 'iOS-' not in runtime and 'iOS ' not in runtime:
+                  continue
+              for x in devs:
+                  if x.get('isAvailable') and 'iPhone' in x.get('name',''):
+                      best = x['udid']
+          if not best:
+              print('NO_AVAILABLE_IPHONE_SIMULATOR'); sys.exit(1)
+          print(best)
+          ")
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          echo "Selected simulator UDID: $UDID"
+
       - name: Build (iPhone simulator, unsigned)
         run: |
           xcodebuild build \
             -project native/DigiCash.xcodeproj \
             -scheme DigiCash \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
             -derivedDataPath /tmp/digicash-dd \
             CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
@@ -44,7 +64,7 @@ jobs:
           xcodebuild test \
             -project native/DigiCash.xcodeproj \
             -scheme DigiCash \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
             -derivedDataPath /tmp/digicash-dd \
             -only-testing:DigiCashTests \
             CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO

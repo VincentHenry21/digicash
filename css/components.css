@@ -56,7 +56,25 @@
 .txn .meta { font-size: 0.8rem; color: var(--text3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .txn .title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Floating glass tabbar */
+/* State-driven transaction motion: rows animate only on add/remove/filter change */
+@keyframes txnIn { from { opacity: 0; transform: translateY(-12px) scale(0.98); } to { opacity: 1; transform: none; } }
+.txn-new { animation: txnIn 0.42s cubic-bezier(0.32,0.72,0,1); }
+.txn-out { transition: opacity 0.25s ease, transform 0.25s ease; opacity: 0; transform: translateX(28px); }
+
+/* Route entrance: cards rise with a stagger when the destination changes */
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+#screen.enter > * { animation: rise 0.45s cubic-bezier(0.32,0.72,0,1) both; }
+#screen.enter > *:nth-child(2) { animation-delay: 0.05s; }
+#screen.enter > *:nth-child(3) { animation-delay: 0.1s; }
+#screen.enter > *:nth-child(4) { animation-delay: 0.15s; }
+#screen.enter > *:nth-child(5) { animation-delay: 0.2s; }
+#screen.enter > *:nth-child(n+6) { animation-delay: 0.25s; }
+@media (prefers-reduced-motion: reduce) {
+  .txn-new, #screen.enter > * { animation: none; }
+  .txn-out { transition: none; }
+}
+
+/* Floating glass bubble tabbar */
 #tabbar {
   position: fixed; left: 50%; transform: translateX(-50%);
   bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); z-index: 50;
@@ -70,19 +88,35 @@
 @media (prefers-reduced-transparency: reduce) {
   #tabbar { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
-#tabbar button {
-  border: 0; background: transparent; color: var(--text2); cursor: pointer;
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
-  padding: 8px 12px; border-radius: 20px; font-size: 0.68rem; font-weight: 600; min-width: 60px;
+#tabbar .bubble {
+  position: absolute; top: 8px; bottom: 8px; left: 0; width: 0;
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+  border-radius: 20px; box-shadow: 0 4px 16px rgba(148,9,182,0.45);
+  transition: transform .32s cubic-bezier(0.32, 0.72, 0, 1), width .32s cubic-bezier(0.32, 0.72, 0, 1);
 }
-#tabbar button[aria-current="page"] { color: #fff; background: rgba(148,9,182,0.28); }
-#tabbar button svg { width: 22px; height: 22px; }
+#tabbar button {
+  position: relative; z-index: 1;
+  border: 0; background: transparent; color: var(--text2); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  padding: 10px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; min-height: 48px;
+  white-space: nowrap;
+}
+#tabbar button .lbl {
+  max-width: 0; opacity: 0; overflow: hidden; white-space: nowrap;
+  transition: max-width .28s ease, opacity .2s ease, margin .28s ease;
+}
+#tabbar button[aria-current="page"] { color: #fff; }
+#tabbar button[aria-current="page"] .lbl { max-width: 90px; opacity: 1; margin-left: 7px; }
+#tabbar button svg { width: 22px; height: 22px; flex-shrink: 0; }
 #tabbar .fab {
-  width: 56px; height: 56px; border-radius: 50%; min-width: 0; padding: 0;
+  width: 56px; height: 56px; border-radius: 50%; min-width: 0; padding: 0; margin: 0 4px;
   background: linear-gradient(135deg, var(--brand), var(--brand-deep)); color: #fff;
   box-shadow: 0 6px 20px rgba(148,9,182,0.5);
 }
 #tabbar .fab svg { width: 26px; height: 26px; }
+@media (prefers-reduced-motion: reduce) {
+  #tabbar .bubble, #tabbar button .lbl { transition: none; }
+}
 
 /* Bottom sheet */
 .sheet-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 90;
@@ -124,7 +158,8 @@
 
 .progress { height: 10px; border-radius: 6px; background: var(--surface2); overflow: hidden; }
 .progress > i { display: block; height: 100%; border-radius: 6px;
-  background: linear-gradient(90deg, var(--brand), var(--brand-soft)); transition: width .3s ease; }
+  background: linear-gradient(90deg, var(--brand), var(--brand-soft));
+  transition: width 0.5s cubic-bezier(0.32,0.72,0,1); }
 .progress.over > i { background: var(--expense); }
 
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px;

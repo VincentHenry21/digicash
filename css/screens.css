@@ -1,7 +1,7 @@
 /* DigiCash screen-specific styles */
 .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .topbar .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; }
-.topbar .brand img { width: 34px; height: 34px; border-radius: 9px; }
+.topbar .brand img { width: 34px; height: 34px; object-fit: contain; }
 .iconbtn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line);
   background: var(--surface); color: var(--text2); cursor: pointer;
   display: inline-flex; align-items: center; justify-content: center; }
@@ -63,7 +63,31 @@ canvas.chart { width: 100%; height: 180px; display: block; }
 .setrow .grow { flex: 1; } .setrow .sub { font-size: 0.8rem; color: var(--text3); margin-top: 2px; }
 
 .ob-step { text-align: center; padding: 30px 8px; }
-.ob-step .logo { width: 96px; height: 96px; border-radius: 26px; margin: 0 auto 18px; box-shadow: 0 12px 40px rgba(148,9,182,0.4); }
+/* Hero welcome: transparent logo, aurora glow, no boxes or banners */
+.ob-hero { position: relative; text-align: center; overflow: hidden;
+  margin: calc(-1 * (env(safe-area-inset-top, 0px) + 16px)) -20px 0;
+  padding: calc(env(safe-area-inset-top, 0px) + 90px) 28px 44px;
+  background: #060608; border-radius: 0 0 30px 30px; }
+.ob-glow { position: absolute; top: -160px; left: 50%; transform: translateX(-50%);
+  width: 620px; height: 420px; pointer-events: none; filter: blur(28px);
+  background:
+    radial-gradient(ellipse 45% 42% at 50% 46%, rgba(255,255,255,0.5), transparent 70%),
+    radial-gradient(ellipse 62% 55% at 50% 52%, rgba(148,9,182,0.6), transparent 70%),
+    radial-gradient(ellipse 80% 70% at 50% 60%, rgba(70,40,160,0.35), transparent 70%); }
+.ob-logo { position: relative; width: 112px; height: 112px; object-fit: contain;
+  display: block; margin: 6px auto 24px;
+  filter: drop-shadow(0 12px 36px rgba(148,9,182,0.5)); }
+.ob-hero h1 { position: relative; color: #fff; font-size: 1.9rem; letter-spacing: -0.02em; margin: 0 0 12px; }
+.ob-hero p { position: relative; color: rgba(255,255,255,0.66); margin: 0 0 26px; line-height: 1.55; }
+.ob-hero .ob-fine { color: rgba(255,255,255,0.42); font-size: 0.8rem; margin: 18px 0 0; }
+.btn-white { position: relative; width: 100%; min-height: 58px; border: 0; cursor: pointer;
+  border-radius: 999px; background: #fff; color: #0a0a0c;
+  font-size: 1.05rem; font-weight: 700;
+  box-shadow: 0 10px 34px rgba(255,255,255,0.28), 0 4px 14px rgba(148,9,182,0.35); }
+.btn-white:active { transform: scale(0.98); }
+.ob-hero .ob-dots { margin: 26px 0 0; }
+.ob-hero .ob-dots i { background: rgba(255,255,255,0.18); }
+.ob-hero .ob-dots i.on { background: #fff; }
 .ob-dots { display: flex; gap: 8px; justify-content: center; margin: 22px 0; }
 .ob-dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
 .ob-dots i.on { background: var(--brand); width: 24px; border-radius: 5px; }

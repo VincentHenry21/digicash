@@ -1,0 +1,87 @@
+/* DigiCash screen-specific styles */
+.topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.topbar .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; }
+.topbar .brand img { width: 34px; height: 34px; border-radius: 9px; }
+.iconbtn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--surface); color: var(--text2); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; }
+.iconbtn svg { width: 20px; height: 20px; }
+
+.balance-card {
+  border-radius: 26px; padding: 24px 22px; color: #fff; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #7a08a0 0%, var(--brand) 45%, #4a0570 100%);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 16px 44px rgba(148,9,182,0.35);
+}
+.balance-card::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,0.16) 0%, transparent 32%); }
+.balance-card .lbl { font-size: 0.85rem; opacity: 0.85; display: flex; align-items: center; gap: 8px; }
+.balance-card .val { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; margin: 6px 0 2px; }
+.balance-card .sub { font-size: 0.85rem; opacity: 0.8; }
+.balance-card .eye { position: absolute; top: 18px; right: 18px; z-index: 2;
+  background: rgba(255,255,255,0.16); border: 0; color: #fff; width: 40px; height: 40px;
+  border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+.flow3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }
+.flow3 .cell { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-s); padding: 12px; }
+.flow3 .cell .l { font-size: 0.72rem; color: var(--text2); font-weight: 600; }
+.flow3 .cell .n { font-size: 1.02rem; font-weight: 700; margin-top: 4px; }
+.flow3 .cell .n.in { color: var(--income); } .flow3 .cell .n.out { color: var(--expense); }
+
+.sect-head { display: flex; align-items: center; justify-content: space-between; margin: 22px 0 8px; }
+.sect-head h2 { margin: 0; }
+.link { background: none; border: 0; color: var(--brand-soft); font-weight: 600; font-size: 0.9rem; cursor: pointer; }
+
+.quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
+.quick button { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-s);
+  color: var(--text); padding: 12px 4px; cursor: pointer; font-size: 0.72rem; font-weight: 600;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 76px; }
+.quick button svg { width: 22px; height: 22px; }
+.quick button:active { transform: scale(0.96); }
+
+canvas.chart { width: 100%; height: 180px; display: block; }
+.chart-tip { text-align: center; font-size: 0.8rem; color: var(--text2); min-height: 1.2em; margin-top: 4px; }
+
+.catgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.catgrid button { background: var(--surface2); border: 2px solid transparent; border-radius: var(--radius-s);
+  padding: 10px 4px; cursor: pointer; color: var(--text); font-size: 0.68rem; font-weight: 600;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 78px; }
+.catgrid button[aria-pressed="true"] { border-color: var(--brand); background: rgba(148,9,182,0.14); }
+.catgrid .ic { width: 36px; height: 36px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.catgrid .ic svg { width: 19px; height: 19px; }
+
+.acct { display: flex; align-items: center; gap: 12px; width: 100%; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius-s); padding: 14px; color: var(--text);
+  cursor: pointer; text-align: left; margin-bottom: 10px; }
+.acct .ic { width: 46px; height: 46px; border-radius: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.acct .ic svg { width: 22px; height: 22px; }
+
+.goalbar { margin-top: 8px; }
+.setrow { display: flex; align-items: center; gap: 12px; padding: 14px 4px; border-bottom: 1px solid var(--line);
+  width: 100%; background: none; border-left: 0; border-right: 0; border-top: 0; color: var(--text);
+  text-align: left; cursor: pointer; font-size: 0.95rem; }
+.setrow .grow { flex: 1; } .setrow .sub { font-size: 0.8rem; color: var(--text3); margin-top: 2px; }
+
+.ob-step { text-align: center; padding: 30px 8px; }
+.ob-step .logo { width: 96px; height: 96px; border-radius: 26px; margin: 0 auto 18px; box-shadow: 0 12px 40px rgba(148,9,182,0.4); }
+.ob-dots { display: flex; gap: 8px; justify-content: center; margin: 22px 0; }
+.ob-dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.ob-dots i.on { background: var(--brand); width: 24px; border-radius: 5px; }
+.ob-nav { display: flex; gap: 10px; margin-top: 18px; }
+.ob-nav .btn { flex: 1; }
+
+.curpick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
+.curpick button { background: var(--surface); border: 2px solid var(--line); border-radius: var(--radius-s);
+  padding: 14px; cursor: pointer; color: var(--text); }
+.curpick button[aria-pressed="true"] { border-color: var(--brand); background: rgba(148,9,182,0.12); }
+.curpick .code { font-weight: 800; font-size: 1.05rem; }
+.curpick .nm { font-size: 0.78rem; color: var(--text2); margin-top: 2px; }
+
+.legend { display: flex; gap: 16px; justify-content: center; font-size: 0.82rem; color: var(--text2); margin-top: 8px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+
+.insight { display: flex; gap: 12px; padding: 13px 4px; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
+.insight:last-child { border-bottom: 0; }
+.insight .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; background: var(--brand-soft); }
+.insight p { margin: 0; color: var(--text); }
+.insight .src { font-size: 0.78rem; color: var(--text3); margin-top: 3px; }

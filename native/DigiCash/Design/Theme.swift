@@ -9,6 +9,7 @@ enum DCColor {
     static let income = Color(red: 0x39/255, green: 0xD9/255, blue: 0x8A/255)
     static let expense = Color(red: 1.0, green: 0x6B/255, blue: 0x6B/255)
     static let warning = Color(red: 1.0, green: 0xB0/255, blue: 0x20/255)
+    static let transfer = Color(red: 0x4A/255, green: 0xA8/255, blue: 1)
 
     static func category(_ name: String) -> Color {
         switch name {

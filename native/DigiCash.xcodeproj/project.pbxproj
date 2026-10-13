@@ -89,7 +89,7 @@
 				8D82E0155B90684E80D1CD53,
 				A18E89BD0581CCF50D83D939,
 			);
-			name = Design; sourceTree = "<group>";
+			name = Design; path = "Design"; sourceTree = "<group>";
 		};
 		DA3EB179D6EE613492F299B1 = {
 			isa = PBXGroup;
@@ -100,7 +100,7 @@
 				7A7B367DCF49D4DC1DBBDBA3,
 				41EB740BE3A5329872A221FF,
 			);
-			name = Core; sourceTree = "<group>";
+			name = Core; path = "Core"; sourceTree = "<group>";
 		};
 		72DF74B0598EE8115CAB814E = {
 			isa = PBXGroup;
@@ -117,7 +117,7 @@
 				477D953213524E5536248B01,
 				1089E08F1EC84621364EAA57,
 			);
-			name = Features; sourceTree = "<group>";
+			name = Features; path = "Features"; sourceTree = "<group>";
 		};
 		AAE953452CCD6DDD91445CEA = {
 			isa = PBXGroup;

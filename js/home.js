@@ -6,6 +6,23 @@
   var period = 'month'; // week | month | lastmonth | custom
   var customFrom = null, customTo = null;
   var acctFilter = 'all';
+  var prevBal = null; // last rendered total, for the balance tween
+
+  // Tween the balance number from the previously rendered value.
+  // State-driven: only runs when the balance actually changed.
+  function tweenBalance(el, totalMinor, cur, hidden) {
+    var from = (prevBal === null || prevBal === undefined) ? totalMinor : prevBal;
+    prevBal = totalMinor;
+    if (hidden || U.reduceMotion || from === totalMinor) return;
+    var t0 = performance.now(), dur = 650;
+    function frame(t) {
+      var p = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = U.fmt(Math.round(from + (totalMinor - from) * e), cur);
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
 
   function periodRange() {
     var now = new Date(), ws = window.DC.prefs().weekStart;
@@ -68,7 +85,7 @@
     }), { fromMs: r.from, toMs: r.to, currency: cur });
 
     var html = '<div class="topbar"><div class="brand">' +
-      '<img src="./assets/icons/icon-192.png" alt="">DIGI:CASH</div>' +
+      '<img src="./assets/logo-transparent.png" alt="">DIGI:CASH</div>' +
       '<div class="row"><button class="iconbtn" id="h-set" aria-label="Settings">' + I.svg('gear') + '</button></div></div>';
 
     // account selector
@@ -82,7 +99,7 @@
     html += '<div class="balance-card"><button class="eye" id="h-eye" aria-label="' +
       (hidden ? 'Show balance' : 'Hide balance') + '">' + I.svg(hidden ? 'eyeoff' : 'eye', 20) + '</button>' +
       '<div class="lbl">Total Balance' + (acctFilter !== 'all' ? ' · ' + U.esc((accts.find(function (a) { return a.id === acctFilter; }) || {}).name || '') : '') + '</div>' +
-      '<div class="val num">' + mask(U.fmt(totalMinor, cur)) + '</div>' +
+      '<div class="val num" id="h-balval">' + mask(U.fmt(totalMinor, cur)) + '</div>' +
       '<div class="sub">' + U.esc(periodLabel()) + '</div></div>';
     if (convertedNote && !hidden)
       html += '<p style="font-size:0.78rem">Includes conversion at your manual exchange rates.</p>';
@@ -155,6 +172,8 @@
     }
 
     s.innerHTML = html;
+
+    tweenBalance(document.getElementById('h-balval'), totalMinor, cur, hidden);
 
     document.getElementById('h-set').addEventListener('click', function () { U.go('settings'); });
     document.getElementById('h-acct').addEventListener('change', function (e) { acctFilter = e.target.value; U.render(); });

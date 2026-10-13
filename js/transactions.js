@@ -266,6 +266,7 @@
     if (r.ok) {
       U.closeSheet();
       U.toast(editing ? 'Transaction updated' : 'Transaction saved', 'ok');
+      if (!editing) U.noteNewTxn(rec.id); // animate the new row in on next render
       if (U.name() !== 'home' && U.name() !== 'transactions') U.go('transactions', {}, true);
       else U.render();
     } else {
@@ -306,7 +307,7 @@
         var r = window.DC.store.update(function (dd) {
           dd.transactions = dd.transactions.filter(function (x) { return x.id !== t.id; });
         });
-        if (r.ok) { U.closeSheet(); U.toast('Transaction deleted', 'ok'); U.render(); }
+        if (r.ok) { U.closeSheet(); U.toast('Transaction deleted', 'ok'); U.removeTxnAnimated(t.id); }
         else U.toast('Delete failed: ' + r.error, 'bad');
       });
     });

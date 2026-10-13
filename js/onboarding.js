@@ -32,12 +32,14 @@
   }
 
   function welcome(s) {
-    s.innerHTML = '<div class="ob-step">' +
-      '<img class="logo" src="./assets/icons/icon-512.png" alt="DigiCash logo">' +
-      '<h1>DIGI:CASH</h1>' +
+    s.innerHTML = '<div class="ob-hero">' +
+      '<div class="ob-glow" aria-hidden="true"></div>' +
+      '<img class="ob-logo" src="./assets/logo-transparent.png" alt="DigiCash logo">' +
+      '<h1>Welcome to DigiCash</h1>' +
       '<p>The best way to manage your money.<br>Private by default. Your data never leaves this device.</p>' +
-      dots() +
-      '<div class="ob-nav"><button class="btn" id="ob-next" style="flex:1">Get Started</button></div></div>';
+      '<button class="btn-white" id="ob-next">Get Started</button>' +
+      '<p class="ob-fine">Free forever · No account · Works offline</p>' +
+      '</div>' + dots();
     document.getElementById('ob-next').addEventListener('click', function () { state.step = 1; render(); });
   }
 
@@ -104,10 +106,13 @@
   }
 
   function doneStep(s) {
-    s.innerHTML = '<div class="ob-step">' +
-      '<img class="logo" src="./assets/icons/icon-512.png" alt="DigiCash logo">' +
-      '<h1>You are set</h1><p>Your ' + state.currency + ' wallet is ready.<br>Add your first transaction whenever you like.</p>' +
-      dots() + '<div class="ob-nav"><button class="btn" id="ob-next" style="flex:1">Open DigiCash</button></div></div>';
+    s.innerHTML = '<div class="ob-hero">' +
+      '<div class="ob-glow" aria-hidden="true"></div>' +
+      '<img class="ob-logo" src="./assets/logo-transparent.png" alt="DigiCash logo">' +
+      '<h1>You are set</h1>' +
+      '<p>Your ' + state.currency + ' wallet is ready.<br>Add your first transaction whenever you like.</p>' +
+      '<button class="btn-white" id="ob-next">Open DigiCash</button>' +
+      '</div>' + dots();
     document.getElementById('ob-next').addEventListener('click', finish);
   }
 

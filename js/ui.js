@@ -74,8 +74,11 @@
 
   // --- router ---
   function register(name, fn) { routes[name] = fn; }
+  var routeChanged = false;
   function go(name, params, replace) {
     if (current && !replace) history.push({ name: current, params: currentParams });
+    bubbleNext = (current !== null && current !== name);
+    routeChanged = bubbleNext;
     current = name; currentParams = params || {};
     render();
     window.scrollTo(0, 0);
@@ -90,9 +93,40 @@
     var fn = routes[current] || routes.home;
     screen.innerHTML = '';
     fn(screen, currentParams);
+    if (routeChanged && !reduceMotion) {
+      screen.classList.remove('enter');
+      void screen.offsetWidth; // restart the entrance animation
+      screen.classList.add('enter');
+    }
+    routeChanged = false;
     renderTabbar();
     bindTxnRows(screen);
+    flashNewTxn();
   }
+  // Set after a successful save; the next render animates the new row in.
+  var _newTxnId = null;
+  function noteNewTxn(id) { _newTxnId = id; }
+  function flashNewTxn() {
+    if (!_newTxnId) return;
+    var el = screen.querySelector('[data-txn="' + _newTxnId + '"]');
+    _newTxnId = null;
+    if (el && !reduceMotion) {
+      el.classList.add('txn-new');
+      setTimeout(function () { el.classList.remove('txn-new'); }, 650);
+    }
+  }
+
+  // Animate a row out, then re-render (used by delete).
+  function removeTxnAnimated(id) {
+    var el = screen.querySelector('[data-txn="' + id + '"]');
+    if (el && !reduceMotion) {
+      el.classList.add('txn-out');
+      setTimeout(function () { render(); }, 270);
+    } else {
+      render();
+    }
+  }
+
   function params() { return currentParams; }
   function name() { return current; }
 
@@ -103,21 +137,76 @@
     { id: 'budgets', label: 'Budgets', icon: 'pie' },
     { id: 'insights', label: 'Insights', icon: 'chart' }
   ];
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bubbleNext = false; // animate bubble on the next tabbar render
+
   function renderTabbar() {
-    tabbar.innerHTML = TABS.map(function (t) {
-      if (t.fab) return '<button class="fab" data-tab="add" aria-label="Add transaction">' + I.svg('plus', 26) + '</button>';
-      return '<button data-tab="' + t.id + '"' + (current === t.id ? ' aria-current="page"' : '') + '>' +
-        I.svg(t.icon, 22) + '<span>' + t.label + '</span></button>';
-    }).join('');
-    tabbar.querySelectorAll('[data-tab]').forEach(function (b) {
+    var bubble = tabbar.querySelector('.bubble');
+    if (!bubble) {
+      bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.setAttribute('aria-hidden', 'true');
+    }
+    tabbar.innerHTML = '';
+    tabbar.appendChild(bubble);
+    TABS.forEach(function (t) {
+      var b = document.createElement('button');
+      if (t.fab) {
+        b.className = 'fab';
+        b.setAttribute('data-tab', 'add');
+        b.setAttribute('aria-label', 'Add transaction');
+        b.innerHTML = I.svg('plus', 26);
+      } else {
+        b.setAttribute('data-tab', t.id);
+        b.setAttribute('aria-label', t.label);
+        if (current === t.id) b.setAttribute('aria-current', 'page');
+        b.innerHTML = I.svg(t.icon, 22) + '<span class="lbl">' + t.label + '</span>';
+      }
       b.addEventListener('click', function () {
         var id = b.getAttribute('data-tab');
         if (id === 'add') window.DCTxn.openForm();
         else go(id, {}, true);
       });
+      tabbar.appendChild(b);
     });
-    // Settings lives in top bars, not the tab bar (5 primary destinations per spec:
-    // Home, Transactions, Budgets, Insights, Settings - settings via header)
+    positionBubble(bubbleNext);
+    bubbleNext = false;
+    if (!renderTabbar._rz) {
+      renderTabbar._rz = true;
+      window.addEventListener('resize', function () { positionBubble(false); });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { positionBubble(false); });
+      }
+    }
+  }
+
+  // Sliding bubble: tracks the active tab. Mid-flight it stretches slightly,
+  // like the reference bubble-menu motion. Pure transform, no layout thrash.
+  function positionBubble(animate) {
+    var bubble = tabbar.querySelector('.bubble');
+    var active = tabbar.querySelector('button[aria-current="page"]');
+    if (!bubble || !active) return;
+    var x = active.offsetLeft, w = active.offsetWidth;
+    var px = bubble._x;
+    bubble._x = x; bubble._w = w;
+    if (!animate || reduceMotion || px === undefined) {
+      try { bubble.getAnimations().forEach(function (a) { a.cancel(); }); } catch (e) {}
+      bubble.style.width = w + 'px';
+      bubble.style.transform = 'translateX(' + x + 'px)';
+      return;
+    }
+    bubble.style.width = w + 'px';
+    var midX = (px + x) / 2;
+    var stretch = 1 + Math.min(0.22, Math.abs(x - px) / 900);
+    try {
+      bubble.animate([
+        { transform: 'translateX(' + px + 'px) scaleX(1)' },
+        { transform: 'translateX(' + midX + 'px) scaleX(' + stretch.toFixed(3) + ')', offset: 0.55 },
+        { transform: 'translateX(' + x + 'px) scaleX(1)' }
+      ], { duration: 340, easing: 'cubic-bezier(0.32,0.72,0,1)', fill: 'forwards' });
+    } catch (e) {
+      bubble.style.transform = 'translateX(' + x + 'px)';
+    }
   }
 
   // --- sheet ---
@@ -242,7 +331,8 @@
     toast: toast, confirmDlg: confirmDlg, fieldError: fieldError,
     fmt: fmt, fmtSigned: fmtSigned, fmtDate: fmtDate, fmtDateTime: fmtDateTime, esc: esc,
     catById: catById, acctById: acctById, catChip: catChip, acctIcon: acctIcon,
-    txnRow: txnRow, bindTxnRows: bindTxnRows,
+    txnRow: txnRow, bindTxnRows: bindTxnRows, noteNewTxn: noteNewTxn,
+    removeTxnAnimated: removeTxnAnimated, reduceMotion: reduceMotion,
     drawBars: drawBars, drawDonut: drawDonut
   };
 })();

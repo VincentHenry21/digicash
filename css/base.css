@@ -19,7 +19,7 @@ body {
 }
 @media (prefers-reduced-transparency: reduce) { #ambient { display: none; } }
 #app { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; min-height: 100dvh; }
-#screen { padding: calc(env(safe-area-inset-top, 0px) + 16px) var(--pad) calc(env(safe-area-inset-bottom, 0px) + 110px); }
+#screen { padding: calc(env(safe-area-inset-top, 0px) + 16px) var(--pad) calc(env(safe-area-inset-bottom, 0px) + 148px); }
 h1 { font-size: 1.7rem; margin: 0.2em 0 0.6em; letter-spacing: -0.02em; }
 h2 { font-size: 1.15rem; margin: 1.4em 0 0.6em; }
 h3 { font-size: 1rem; margin: 1.1em 0 0.5em; }

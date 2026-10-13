@@ -98,7 +98,10 @@
 .sheet-backdrop.open { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .sheet, .sheet-backdrop { transition: none; } }
 .sheet .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--line); margin: 6px auto 14px; }
-.sheet h2 { margin-top: 0; }
+.sheet .sheet-x { position: absolute; top: 14px; right: 16px; width: 36px; height: 36px;
+  border-radius: 50%; border: 1px solid var(--line); background: var(--surface2);
+  color: var(--text2); cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; }
+.sheet h2 { margin-top: 0; padding-right: 44px; }
 
 #toast-root { position: fixed; left: 50%; transform: translateX(-50%);
   bottom: calc(env(safe-area-inset-bottom, 0px) + 100px); z-index: 120;

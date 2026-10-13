@@ -128,10 +128,20 @@
     bd.className = 'sheet-backdrop';
     var sh = document.createElement('div');
     sh.className = 'sheet'; sh.setAttribute('role', 'dialog'); sh.setAttribute('aria-modal', 'true');
-    sh.innerHTML = '<div class="grab"></div>' + html;
+    sh.innerHTML = '<div class="grab"></div>' +
+      (opts.sticky ? '' : '<button class="sheet-x" aria-label="Close">') +
+      (opts.sticky ? '' : I.svg('x', 18) + '</button>') + html;
     sheetRoot.appendChild(bd); sheetRoot.appendChild(sh);
     requestAnimationFrame(function () { bd.classList.add('open'); sh.classList.add('open'); });
     bd.addEventListener('click', function () { if (!opts.sticky) closeSheet(); });
+    var x = sh.querySelector('.sheet-x');
+    if (x) x.addEventListener('click', closeSheet);
+    if (!opts.sticky && !openSheet._esc) {
+      openSheet._esc = true;
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && sheetRoot.querySelector('.sheet')) closeSheet();
+      });
+    }
     var f = sh.querySelector('input,select,textarea,button');
     if (f && !opts.noFocus) setTimeout(function () { try { f.focus({ preventScroll: true }); } catch (e) {} }, 320);
     return sh;

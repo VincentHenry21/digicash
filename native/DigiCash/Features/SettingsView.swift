@@ -355,6 +355,7 @@ struct BackupDocument: FileDocument {
 struct ImportReport { var imported: Int; var skipped: Int }
 
 enum BackupService {
+    @MainActor
     static func export(store: DataStore) throws -> URL {
         let ctx = store.context
         // Encode via JSONEncoder-friendly structs
@@ -395,6 +396,7 @@ enum BackupService {
         return out
     }
 
+    @MainActor
     static func exportCSV(store: DataStore) -> URL {
         let txs = store.transactions()
         let accs = Dictionary(uniqueKeysWithValues: store.accounts(activeOnly: false).map { ($0.id, $0.name) })
@@ -415,6 +417,7 @@ enum BackupService {
         s.contains(",") || s.contains("\"") ? "\"\(s.replacingOccurrences(of: "\"", with: "\"\""))\"" : s
     }
 
+    @MainActor
     static func importCSV(store: DataStore, from url: URL) throws -> ImportReport {
         guard url.startAccessingSecurityScopedResource() else {
             throw CocoaError(.fileReadNoPermission)

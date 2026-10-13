@@ -1,0 +1,46 @@
+name: iOS Build and Test
+
+# Verifies the DigiCash native app actually compiles and passes tests
+# on real Apple infrastructure (GitHub-hosted macOS runners with Xcode).
+on:
+  push:
+    paths:
+      - "native/**"
+  pull_request:
+    paths:
+      - "native/**"
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: |
+          if [ -d /Applications/Xcode_16.2.app ]; then
+            sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+          else
+            echo "Xcode 16.2 not present, using runner default"
+          fi
+          xcodebuild -version
+
+      - name: Build (iPhone simulator, unsigned)
+        run: |
+          xcodebuild build \
+            -project native/DigiCash/DigiCash.xcodeproj \
+            -scheme DigiCash \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -derivedDataPath /tmp/digicash-dd \
+            CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+      - name: Run unit tests
+        run: |
+          xcodebuild test \
+            -project native/DigiCash/DigiCash.xcodeproj \
+            -scheme DigiCash \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -derivedDataPath /tmp/digicash-dd \
+            -only-testing:DigiCashTests \
+            CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO

@@ -35,7 +35,7 @@ jobs:
           xcodebuild build \
             -project native/DigiCash.xcodeproj \
             -scheme DigiCash \
-            -destination 'platform=iOS Simulator,name=Any iOS Simulator Device' \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             -derivedDataPath /tmp/digicash-dd \
             CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
@@ -44,7 +44,7 @@ jobs:
           xcodebuild test \
             -project native/DigiCash.xcodeproj \
             -scheme DigiCash \
-            -destination 'platform=iOS Simulator,name=Any iOS Simulator Device' \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             -derivedDataPath /tmp/digicash-dd \
             -only-testing:DigiCashTests \
             CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
